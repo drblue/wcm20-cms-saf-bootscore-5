@@ -112,7 +112,7 @@ add_action( 'after_setup_theme', 'bootscore_content_width', 0 );
 if ( ! function_exists( 'bootscore_widgets_init' ) ) :
 
     function bootscore_widgets_init() {
-        
+
         // Top Nav
         register_sidebar(array(
             'name' => esc_html__('Top Nav', 'bootscore' ),
@@ -240,9 +240,9 @@ add_filter( 'widget_text', 'do_shortcode' );
  */
 function bootscore_scripts() {
 
-	// Bootstrap	
+	// Bootstrap
 	wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/css/lib/bootstrap.min.css');
-    
+
     // Style CSS
 	wp_enqueue_style( 'bootscore-style', get_stylesheet_uri() );
 	
@@ -251,10 +251,10 @@ function bootscore_scripts() {
 
 	// Bootstrap JS
 	wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/js/lib/bootstrap.bundle.min.js', array(), '20151215', true );
-    
+
     // Theme JS
 	wp_enqueue_script( 'bootscore-script', get_template_directory_uri() . '/js/theme.js', array(), '20151215', true );
-	
+
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
@@ -309,47 +309,47 @@ endif;
 
 
 // Pagination Categories
-function bootscore_pagination($pages = '', $range = 2) 
-{  
-	$showitems = ($range * 2) + 1;  
+function bootscore_pagination($pages = '', $range = 2)
+{
+	$showitems = ($range * 2) + 1;
 	global $paged;
 	if($pages == '')
 	{
-		global $wp_query; 
+		global $wp_query;
 		$pages = $wp_query->max_num_pages;
-	
+
 		if(!$pages)
-			$pages = 1;		 
-	}   
-	
+			$pages = 1;
+	}
+
 	if(1 != $pages)
 	{
 	    echo '<nav aria-label="Page navigation" role="navigation">';
         echo '<span class="sr-only">Page navigation</span>';
         echo '<ul class="pagination justify-content-center ft-wpbs mb-4">';
-		
-     
-	 	if($paged > 2 && $paged > $range+1 && $showitems < $pages) 
+
+
+	 	if($paged > 2 && $paged > $range+1 && $showitems < $pages)
 			echo '<li class="page-item"><a class="page-link" href="'.get_pagenum_link(1).'" aria-label="First Page">&laquo;</a></li>';
-	
-	 	if($paged > 1 && $showitems < $pages) 
+
+	 	if($paged > 1 && $showitems < $pages)
 			echo '<li class="page-item"><a class="page-link" href="'.get_pagenum_link($paged - 1).'" aria-label="Previous Page">&lsaquo;</a></li>';
-	
+
 		for ($i=1; $i <= $pages; $i++)
 		{
 		    if (1 != $pages &&( !($i >= $paged+$range+1 || $i <= $paged-$range-1) || $pages <= $showitems ))
 				echo ($paged == $i)? '<li class="page-item active"><span class="page-link"><span class="sr-only">Current Page </span>'.$i.'</span></li>' : '<li class="page-item"><a class="page-link" href="'.get_pagenum_link($i).'"><span class="sr-only">Page </span>'.$i.'</a></li>';
 		}
-		
-		if ($paged < $pages && $showitems < $pages) 
-			echo '<li class="page-item"><a class="page-link" href="'.get_pagenum_link($paged + 1).'" aria-label="Next Page">&rsaquo;</a></li>';  
-	
-	 	if ($paged < $pages-1 &&  $paged+$range-1 < $pages && $showitems < $pages) 
+
+		if ($paged < $pages && $showitems < $pages)
+			echo '<li class="page-item"><a class="page-link" href="'.get_pagenum_link($paged + 1).'" aria-label="Next Page">&rsaquo;</a></li>';
+
+	 	if ($paged < $pages-1 &&  $paged+$range-1 < $pages && $showitems < $pages)
 			echo '<li class="page-item"><a class="page-link" href="'.get_pagenum_link($pages).'" aria-label="Last Page">&raquo;</a></li>';
-	
+
 	 	echo '</ul>';
         echo '</nav>';
-        // echo '<div class="pagination-info mb-5 text-center">[ <span class="text-muted">Page</span> '.$paged.' <span class="text-muted">of</span> '.$pages.' ]</div>';	 	
+        // echo '<div class="pagination-info mb-5 text-center">[ <span class="text-muted">Page</span> '.$paged.' <span class="text-muted">of</span> '.$pages.' ]</div>';
 	}
 }
 //Pagination Categories End
@@ -397,8 +397,8 @@ endif;
 
 // Comment Button
 function bootscore_comment_form( $args ) {
-    $args['class_submit'] = 'btn btn-outline-primary'; // since WP 4.1    
-    return $args;    
+    $args['class_submit'] = 'btn btn-outline-primary'; // since WP 4.1
+    return $args;
 }
 add_filter( 'comment_form_defaults', 'bootscore_comment_form' );
 // Comment Button End
@@ -425,7 +425,7 @@ foreach ( array( 'pre_term_description' ) as $filter ) {
 		add_filter( $filter, 'wp_filter_post_kses' );
 	}
 }
- 
+
 foreach ( array( 'term_description' ) as $filter ) {
 	remove_filter( $filter, 'wp_kses_data' );
 }
@@ -441,13 +441,13 @@ add_filter( 'pre_user_description', 'wp_filter_post_kses');
 // Hook after #primary
 function bs_after_primary() {
     do_action('bs_after_primary');
-} 
+}
 // Hook after #primary End
 
 
 // Open links in comments in new tab
 if ( ! function_exists( 'bs_comment_links_in_new_tab' ) ) :
-    function bs_comment_links_in_new_tab($text) 
+    function bs_comment_links_in_new_tab($text)
     {
         return str_replace('<a', '<a target="_blank" rel=”nofollow”', $text);
     }
