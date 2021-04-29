@@ -240,9 +240,6 @@ add_filter( 'widget_text', 'do_shortcode' );
  */
 function bootscore_scripts() {
 
-	// Bootstrap
-	wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/css/lib/bootstrap.min.css');
-
     // Style CSS
 	wp_enqueue_style( 'bootscore-style', get_template_directory_uri() . '/css/theme.css' );
 
