@@ -3,7 +3,7 @@
 	 * Template Name: Full width image
 	 * Template Post Type: post
 	 */
-	  
+
 	 get_header();  ?>
 
 <div id="content" class="site-content">
@@ -36,7 +36,7 @@
                             <?php
 							     bootscore_date();
 							     _e(' by ', 'bootscore'); the_author_posts_link();
-							     bootscore_comment_count();							
+							     bootscore_comment_count();
 				            ?>
                         </small>
                     </p>

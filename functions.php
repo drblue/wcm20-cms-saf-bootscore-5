@@ -441,7 +441,6 @@ function bs_after_primary() {
 }
 // Hook after #primary End
 
-
 // Open links in comments in new tab
 if ( ! function_exists( 'bs_comment_links_in_new_tab' ) ) :
     function bs_comment_links_in_new_tab($text)

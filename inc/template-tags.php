@@ -21,9 +21,47 @@ if ( ! function_exists( 'bootscore_category_badge' ) ) :
 						    $thelist .= '<a href="' . esc_url( get_category_link( $category->term_id ) ) . '" class="badge bg-secondary">' . $category->name.'</a>';
 						    $i++;
             }
-            echo $thelist;	
+            echo $thelist;
             echo '</div>';
 		}
+	}
+endif;
+// Category Badge End
+
+// Movie Genre Badge
+if ( ! function_exists( 'bootscore_movie_genre_badge' ) ) :
+	function bootscore_movie_genre_badge() {
+		// get all movie genres for the current post
+		$genres = get_the_terms(get_the_ID(), 'mbt_movie_genre');
+
+		// bail if no movie genres exist for this post
+		if (!$genres) {
+			return;
+		}
+
+		echo '<div class="movie-genre-badges mb-2">';
+		$badges = [];
+
+		// loop over all genres and construct a HTML-link for each of them
+		foreach ($genres as $genre) {
+			// get URL to the archive page for $genre
+			$genre_url = get_term_link($genre, 'mbt_movie_genre');
+
+			// create anchor link
+			$badge = sprintf(
+				'<a href="%s" class="badge bg-secondary">%s</a>',
+				$genre_url,
+				$genre->name
+			);
+
+			// add anchor link to list of genre badges
+			array_push($badges, $badge);
+		}
+
+		// output badges with a space between them
+		echo implode(' ', $badges);
+
+		echo '</div>';
 	}
 endif;
 // Category Badge End
@@ -38,8 +76,8 @@ if ( ! function_exists( 'bootscore_category' ) ) :
 			$categories_list = get_the_category_list( esc_html__( ', ', 'bootscore' ) );
 			if ( $categories_list ) {
 				/* translators: 1: list of categories. */
-				printf( '<span class="cat-links"></span>', $categories_list ); // WPCS: XSS OK.	
-			}		
+				printf( '<span class="cat-links"></span>', $categories_list ); // WPCS: XSS OK.
+			}
 		}
 	}
 endif;
@@ -119,7 +157,7 @@ if ( ! function_exists( 'bootscore_comments' ) ) :
 			);
 			echo '</span>';
 		}
-	
+
 	}
 endif;
 // Comments End
@@ -151,7 +189,7 @@ if ( ! function_exists( 'bootscore_edit' ) ) :
 	}
 endif;
 // Edit Link End
-		
+
 
 // Single Comments Count
 if ( ! function_exists( 'bootscore_comment_count' ) ) :
@@ -260,7 +298,7 @@ if ( ! function_exists( 'bootscore_ie_alert' ) ) :
                     </div>
                ';
             }
-        
+
 	}
 endif;
 
