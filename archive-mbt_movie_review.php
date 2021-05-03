@@ -40,6 +40,10 @@
 									<div class="col">
 										<div class="card-body">
 
+											<!-- Movie Score -->
+											<?php bootscore_movie_score_badge(); ?>
+
+											<!-- Movie Genres -->
 											<?php bootscore_movie_genre_badge(); ?>
 
 											<!-- Title -->
@@ -63,8 +67,6 @@
 											<div class="card-text mt-auto">
 												<?php the_excerpt(); ?> <a class="read-more" href="<?php the_permalink(); ?>"><?php _e('Read more »', 'bootscore'); ?></a>
 											</div>
-											<!-- Tags -->
-											<?php bootscore_tags(); ?>
 										</div>
 									</div>
 								</div>

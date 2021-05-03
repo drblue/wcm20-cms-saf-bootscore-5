@@ -66,6 +66,20 @@ if ( ! function_exists( 'bootscore_movie_genre_badge' ) ) :
 endif;
 // Category Badge End
 
+if (!function_exists('bootscore_movie_score_badge')) {
+	function bootscore_movie_score_badge() {
+		$movie_score = get_post_meta(get_the_ID(), 'movie_score', true);
+		if (!empty($movie_score)) {
+			printf('<div class="badge bg-success mb-2">%s</div>',
+				sprintf(
+					__('Rating: %s', 'bootscore'),
+					$movie_score
+				)
+			);
+		}
+	}
+}
+
 
 // Category
 if ( ! function_exists( 'bootscore_category' ) ) :
