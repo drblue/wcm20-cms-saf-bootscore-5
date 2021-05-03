@@ -37,7 +37,33 @@ get_header();
 						<?php the_title('<h1>', '</h1>'); ?>
 					<?php endif; ?>
 
+					<!-- Movie Score -->
+					<?php
+						$movie_score = get_post_meta(get_the_ID(), 'movie_score', true);
+						if (!empty($movie_score)) {
+							printf('<div class="badge bg-success mb-2">%s</div>',
+								sprintf(
+									__('Rating: %s', 'bootscore'),
+									$movie_score
+								)
+							);
+						}
+					?>
+
 					<?php bootscore_movie_genre_badge(); ?>
+
+					<!-- Trailers -->
+					<?php
+						// get all trailers (if any)
+						$trailers = get_post_meta(get_the_ID(), 'trailer', false);
+						if (!empty($trailers)) {
+							echo '<div class="movie-trailers mb-2">';
+							foreach ($trailers as $trailer) {
+								printf('<a href="%s" class="badge bg-warning me-1">Trailer</a>', $trailer);
+							}
+							echo '</div>';
+						}
+					?>
 
 					<p class="entry-meta">
 						<small class="text-muted">
