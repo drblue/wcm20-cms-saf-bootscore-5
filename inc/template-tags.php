@@ -119,7 +119,9 @@ if (!function_exists('bootscore_movie_actors')) {
 					<?php foreach ($actors as $actor): ?>
 						<div class="col">
 							<div class="card">
-								<?php echo get_the_post_thumbnail($actor, 'thumbnail', ['class' => 'card-img-top img-fluid']); ?>
+								<a href="<?php echo get_the_permalink($actor); ?>">
+									<?php echo get_the_post_thumbnail($actor, 'thumbnail', ['class' => 'card-img-top img-fluid']); ?>
+								</a>
 								<div class="card-body">
 									<h3 class="card-title h6">
 										<a href="<?php echo get_the_permalink($actor); ?>">
