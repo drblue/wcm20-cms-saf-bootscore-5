@@ -79,7 +79,7 @@ if (!function_exists('bootscore_movie_score_badge')) {
 			printf('<div class="badge bg-success mb-2">%s</div>',
 				sprintf(
 					__('Rating: %s', 'bootscore'),
-					$movie_score
+					str_repeat('🍿', $movie_score)
 				)
 			);
 		}

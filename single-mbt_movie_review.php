@@ -22,8 +22,11 @@ get_header();
 					<?php $thumb = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'full'); ?>
 
 					<div class="height-75 bg-dark text-light align-items-end dflex mb-3" style="background-image: url('<?php echo $thumb['0']; ?>;'); background-position: center;">
-						<div class="container align-items-end d-flex h-100 pb-3">
+						<div class="container align-items-end justify-content-between d-flex h-100 pb-3">
 							<?php the_title('<h1>', '</h1>'); ?>
+							<div class="h4">
+								<?php bootscore_movie_score_badge(); ?>
+							</div>
 						</div>
 					</div>
 				<?php endif; ?>
@@ -37,8 +40,10 @@ get_header();
 						<?php the_title('<h1>', '</h1>'); ?>
 					<?php endif; ?>
 
-					<!-- Movie Score -->
-					<?php bootscore_movie_score_badge(); ?>
+					<?php if (!has_post_thumbnail()): ?>
+						<!-- Movie Score -->
+						<?php bootscore_movie_score_badge(); ?>
+					<?php endif; ?>
 
 					<!-- Movie Medium -->
 					<?php if ($medium = get_field('medium')): ?>
