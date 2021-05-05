@@ -114,10 +114,10 @@ if (!function_exists('bootscore_movie_actors')) {
 			?>
 				<h2><?php _e('Actors', 'bootscore'); ?></h2>
 
-				<ul class="movie-actors row">
+				<ul class="movie-actors row row-cols-3 row-cols-md-4 row-cols-lg-6 g-4">
 
 					<?php foreach ($actors as $actor): ?>
-						<div class="col-sm-4 col-md-2">
+						<div class="col">
 							<div class="card">
 								<?php echo get_the_post_thumbnail($actor, 'thumbnail', ['class' => 'card-img-top img-fluid']); ?>
 								<div class="card-body">
