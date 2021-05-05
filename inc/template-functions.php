@@ -35,3 +35,24 @@ function bootscore_pingback_header() {
 	}
 }
 add_action( 'wp_head', 'bootscore_pingback_header' );
+
+if (!function_exists('dump')) {
+	/**
+	 * var_dump variable
+	 *
+	 * @param mixed $var Variable to dump
+	 * @param boolean $wrap Wrap output in <pre>-tag?
+	 * @return void
+	 */
+	function dump($var, $wrap = true) {
+		if ($wrap) {
+			echo "<pre>";
+		}
+
+		var_dump($var);
+
+		if ($wrap) {
+			echo "</pre>";
+		}
+	}
+}
