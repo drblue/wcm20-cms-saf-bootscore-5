@@ -101,6 +101,32 @@ if (!function_exists('bootscore_movie_preamble')) {
 	}
 }
 
+if (!function_exists('bootscore_movie_actors')) {
+	function bootscore_movie_actors() {
+		// bail if ACF is not installed/activated, as we won't have any movie actors to show anyway 😝
+		if (!function_exists('get_field')) {
+			return;
+		}
+
+		$actors = get_field('actors');
+		dump($actors);
+		if (!empty($actors)) {
+			printf('<h2>%s</h2>', __('Actors', 'bootscore'));
+
+			echo '<ul class="movie-actors">';
+			foreach ($actors as $actor) {
+				$link = sprintf('<a href="%s">%s</a>',
+					get_the_permalink($actor),
+					get_the_title($actor)
+				);
+
+				printf('<li>%s</li>', $link);
+			}
+			echo '</ul>';
+		}
+	}
+}
+
 // Category
 if ( ! function_exists( 'bootscore_category' ) ) :
 	function bootscore_category() {
