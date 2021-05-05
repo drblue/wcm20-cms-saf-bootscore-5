@@ -40,6 +40,13 @@ get_header();
 					<!-- Movie Score -->
 					<?php bootscore_movie_score_badge(); ?>
 
+					<!-- Movie Medium -->
+					<?php if ($medium = get_field('medium')): ?>
+						<div class="movie-medium badge bg-primary">
+							<?php echo $medium['label']; ?>
+						</div>
+					<?php endif; ?>
+
 					<!-- Movie Genres -->
 					<?php bootscore_movie_genre_badge(); ?>
 
