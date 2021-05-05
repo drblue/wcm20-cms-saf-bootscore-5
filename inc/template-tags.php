@@ -109,20 +109,30 @@ if (!function_exists('bootscore_movie_actors')) {
 		}
 
 		$actors = get_field('actors');
-		dump($actors);
+		// dump($actors);
 		if (!empty($actors)) {
-			printf('<h2>%s</h2>', __('Actors', 'bootscore'));
+			?>
+				<h2><?php _e('Actors', 'bootscore'); ?></h2>
 
-			echo '<ul class="movie-actors">';
-			foreach ($actors as $actor) {
-				$link = sprintf('<a href="%s">%s</a>',
-					get_the_permalink($actor),
-					get_the_title($actor)
-				);
+				<ul class="movie-actors row">
 
-				printf('<li>%s</li>', $link);
-			}
-			echo '</ul>';
+					<?php foreach ($actors as $actor): ?>
+						<div class="col-sm-4 col-md-2">
+							<div class="card">
+								<?php echo get_the_post_thumbnail($actor, 'thumbnail', ['class' => 'card-img-top img-fluid']); ?>
+								<div class="card-body">
+									<h3 class="card-title h6">
+										<a href="<?php echo get_the_permalink($actor); ?>">
+											<?php echo get_the_title($actor); ?>
+										</a>
+									</h3>
+								</div>
+							</div>
+						</div>
+					<?php endforeach; ?>
+
+				</ul>
+			<?php
 		}
 	}
 }
