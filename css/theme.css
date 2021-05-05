@@ -10926,3 +10926,12 @@ Custom checkboxes, radios, range, and select on Mac/iOS Safari if custom Sass co
 .form-select {
   -webkit-appearance: none;
 }
+
+/**
+ * Movie Review styles
+ */
+.preamble {
+  font-size: 1.2em;
+  font-style: italic;
+  margin-bottom: 1rem;
+}

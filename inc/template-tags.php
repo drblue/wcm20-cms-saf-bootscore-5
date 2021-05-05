@@ -86,6 +86,21 @@ if (!function_exists('bootscore_movie_score_badge')) {
 	}
 }
 
+if (!function_exists('bootscore_movie_preamble')) {
+	function bootscore_movie_preamble() {
+		// bail if ACF is not installed/activated, as we won't have a movie preamble to show anyway 😝
+		if (!function_exists('get_field')) {
+			return;
+		}
+
+		$preamble = get_field('preamble', false, true);
+
+		if (!empty($preamble)) {
+			printf('<div class="preamble">%s</div>', $preamble);
+		}
+	}
+}
+
 // Category
 if ( ! function_exists( 'bootscore_category' ) ) :
 	function bootscore_category() {

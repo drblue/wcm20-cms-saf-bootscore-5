@@ -78,6 +78,8 @@ get_header();
 						</small>
 					</p>
 
+					<?php bootscore_movie_preamble(); ?>
+
 					<?php the_content(); ?>
 
 				</div>
