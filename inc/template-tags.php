@@ -68,7 +68,13 @@ endif;
 
 if (!function_exists('bootscore_movie_score_badge')) {
 	function bootscore_movie_score_badge() {
-		$movie_score = get_post_meta(get_the_ID(), 'movie_score', true);
+		// bail if ACF is not installed/activated, as we won't have a movie score to show anyway 😝
+		if (!function_exists('get_field')) {
+			return;
+		}
+
+		$movie_score = get_field('movie_score', false, false);
+
 		if (!empty($movie_score)) {
 			printf('<div class="badge bg-success mb-2">%s</div>',
 				sprintf(
@@ -79,7 +85,6 @@ if (!function_exists('bootscore_movie_score_badge')) {
 		}
 	}
 }
-
 
 // Category
 if ( ! function_exists( 'bootscore_category' ) ) :
