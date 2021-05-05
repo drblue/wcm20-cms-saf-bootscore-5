@@ -2,8 +2,14 @@
  * Movie Review styles
  */
 
-.preamble {
-	font-size: 1.2em;
-	font-style: italic;
-	margin-bottom: 1rem;
+.single-mbt_movie_review {
+	.entry-content {
+		text-align: justify;
+
+		.preamble {
+			font-size: 1.2em;
+			font-style: italic;
+			margin-bottom: 1rem;
+		}
+	}
 }

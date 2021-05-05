@@ -86,6 +86,27 @@ if (!function_exists('bootscore_movie_score_badge')) {
 	}
 }
 
+if (!function_exists('bootscore_movie_poster')) {
+	function bootscore_movie_poster() {
+		// bail if ACF is not installed/activated, as we won't have a movie poster to show anyway 😝
+		if (!function_exists('get_field')) {
+			return;
+		}
+
+		$poster = get_field('poster');
+		// dump($poster);
+		if (!$poster) {
+			return;
+		}
+
+		$img = wp_get_attachment_image_src($poster['ID'], 'medium_large');
+		$img_srcset = wp_get_attachment_image_srcset($poster['ID'], 'medium_large');
+		// dump($img);
+		// dump($img_srcset);
+		printf('<img src="%s" srcset="%s" class="w-50 ms-3 mb-3 float-end img-fluid">', $img[0], $img_srcset);
+	}
+}
+
 if (!function_exists('bootscore_movie_preamble')) {
 	function bootscore_movie_preamble() {
 		// bail if ACF is not installed/activated, as we won't have a movie preamble to show anyway 😝

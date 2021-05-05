@@ -80,6 +80,10 @@ get_header();
 
 					<?php bootscore_movie_actors(); ?>
 
+					<!-- Movie Poster -->
+					<?php bootscore_movie_poster(); ?>
+					<!-- End Movie Poster -->
+
 					<?php bootscore_movie_preamble(); ?>
 
 					<?php the_content(); ?>
