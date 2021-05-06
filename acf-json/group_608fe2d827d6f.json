@@ -1,0 +1,94 @@
+{
+    "key": "group_608fe2d827d6f",
+    "title": "Movie Review Details",
+    "fields": [
+        {
+            "key": "field_608fe2df7cdc9",
+            "label": "Movie Score",
+            "name": "movie_score",
+            "type": "range",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "min": "",
+            "max": 5,
+            "step": "",
+            "prepend": "",
+            "append": "of 5"
+        },
+        {
+            "key": "field_608feae3cd8e7",
+            "label": "Medium",
+            "name": "medium",
+            "type": "select",
+            "instructions": "Select medium for movie",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "cinema": "Cinema",
+                "bluray": "Blu-Ray",
+                "vhs": "VHS"
+            },
+            "default_value": false,
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "array",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_609268f6820ee",
+            "label": "Poster",
+            "name": "poster",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "preview_size": "medium",
+            "library": "all",
+            "min_width": 300,
+            "min_height": 400,
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "jpg,png"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "mbt_movie_review"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "side",
+    "style": "default",
+    "label_placement": "left",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Metadata for Movie Reviews",
+    "modified": 1620303205
+}
