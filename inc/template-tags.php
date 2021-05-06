@@ -124,7 +124,7 @@ if (!function_exists('bootscore_movie_info')) {
 		if (have_rows('info')) {
 			// yes we have at least one row of sub-fields to show!
 
-			echo '<ul>';
+			echo '<dl>';
 			while (have_rows('info')) {
 				the_row();
 
@@ -141,9 +141,9 @@ if (!function_exists('bootscore_movie_info')) {
 				 *   Engelska
 				 * </li>
 				 */
-				printf('<li><strong>%s:</strong> %s</li>', $label, $value);
+				printf('<dt>%s</dt><dd>%s</dd>', $label, $value);
 			}
-			echo '</ul>';
+			echo '</dl>';
 		}
 	}
 }
