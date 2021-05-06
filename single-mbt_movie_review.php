@@ -46,7 +46,7 @@ get_header();
 					<?php endif; ?>
 
 					<!-- Movie Medium -->
-					<?php if ($medium = get_field('medium')): ?>
+					<?php if (function_exists('get_field') && $medium = get_field('medium')): ?>
 						<div class="movie-medium badge bg-primary">
 							<?php echo $medium['label']; ?>
 						</div>
@@ -77,6 +77,10 @@ get_header();
 							?>
 						</small>
 					</p>
+
+					<!-- Movie Gallery -->
+					<?php bootscore_movie_gallery(); ?>
+					<!-- Movie Gallery -->
 
 					<?php bootscore_movie_actors(); ?>
 
