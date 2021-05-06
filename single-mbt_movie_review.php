@@ -78,6 +78,10 @@ get_header();
 						</small>
 					</p>
 
+					<!-- Movie Info -->
+					<?php bootscore_movie_info(); ?>
+					<!-- Movie Gallery -->
+
 					<!-- Movie Gallery -->
 					<?php bootscore_movie_gallery(); ?>
 					<!-- Movie Gallery -->

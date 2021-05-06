@@ -114,6 +114,40 @@ if (!function_exists('bootscore_movie_gallery')) {
 	}
 }
 
+if (!function_exists('bootscore_movie_info')) {
+	function bootscore_movie_info() {
+		// bail if ACF is not installed/activated, as we won't have a movie poster to show anyway 😝
+		if (!function_exists('get_field')) {
+			return;
+		}
+
+		if (have_rows('info')) {
+			// yes we have at least one row of sub-fields to show!
+
+			echo '<ul>';
+			while (have_rows('info')) {
+				the_row();
+
+				$label = get_sub_field('label');
+				$value = get_sub_field('value');
+
+				/**
+				 * <li>
+				 *   <strong>Biopremiär:</strong>
+				 *   7 november 2014
+				 * </li>
+				 * <li>
+				 *   <strong>Språk:</strong>
+				 *   Engelska
+				 * </li>
+				 */
+				printf('<li><strong>%s:</strong> %s</li>', $label, $value);
+			}
+			echo '</ul>';
+		}
+	}
+}
+
 if (!function_exists('bootscore_movie_poster')) {
 	function bootscore_movie_poster() {
 		// bail if ACF is not installed/activated, as we won't have a movie poster to show anyway 😝
