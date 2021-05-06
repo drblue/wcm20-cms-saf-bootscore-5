@@ -1,6 +1,6 @@
 {
     "key": "group_608fe2d827d6f",
-    "title": "Movie Review Details",
+    "title": "Movie Review",
     "fields": [
         {
             "key": "field_608fe2df7cdc9",
@@ -90,5 +90,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "Metadata for Movie Reviews",
-    "modified": 1620303205
+    "modified": 1620303306
 }
