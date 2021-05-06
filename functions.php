@@ -13,6 +13,10 @@
 // WooCommerce End
 
 
+// Load bundled ACF plugin
+require get_template_directory() . '/inc/acf-loader.php';
+
+
 // Register Nav Walker class_alias
 if ( ! function_exists( 'register_navwalker' ) ) :
     function register_navwalker(){
