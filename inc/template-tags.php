@@ -101,18 +101,15 @@ if (!function_exists('bootscore_movie_gallery')) {
 		}
 
 		?>
-			<ul class="list-unstyled row">
-				<?php foreach ($gallery as $image): ?>
-					<li class="col">
-						<?php
-							$img = wp_get_attachment_image_src($image['ID'], 'thumbnail');
-						?>
-						<a href="<?php echo $image['url']; ?>">
-							<img src="<?php echo $img[0]; ?>" class="img-fluid">
-						</a>
-					</li>
-				<?php endforeach; ?>
-			</ul>
+			<div class="flexslider">
+				<ul class="slides">
+					<?php foreach ($gallery as $image): ?>
+						<li>
+							<img src="<?php echo $image['url']; ?>">
+						</li>
+					<?php endforeach; ?>
+				</ul>
+			</div>
 		<?php
 	}
 }
