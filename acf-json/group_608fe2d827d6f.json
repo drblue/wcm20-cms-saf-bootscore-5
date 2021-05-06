@@ -89,6 +89,6 @@
     "instruction_placement": "label",
     "hide_on_screen": "",
     "active": true,
-    "description": "Metadata for Movie Reviews",
-    "modified": 1620303306
+    "description": "Metadata (score, medium and poster) for Movie Reviews",
+    "modified": 1620303792
 }
