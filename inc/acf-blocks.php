@@ -16,7 +16,10 @@ function bootscore_register_acf_block_types() {
 		'description' => __('A custom movie quote block.', 'bootscore'),
 		'render_template' => 'template-parts/blocks/bs-movie-quote/bs-movie-quote.php',
 		'category' => 'formatting',
-		'icon' => 'dashicons-format-quote',
+		'icon' => 'format-quote',
+		'supports' => [
+			'align' => true,
+		],
 		'keywords' => ['movie', 'quote', 'film'],
 	]);
 }
