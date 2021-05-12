@@ -17,6 +17,10 @@
 require get_template_directory() . '/inc/acf-loader.php';
 
 
+// Load ACF blocks
+require get_template_directory() . '/inc/acf-blocks.php';
+
+
 // Register Nav Walker class_alias
 if ( ! function_exists( 'register_navwalker' ) ) :
     function register_navwalker(){
