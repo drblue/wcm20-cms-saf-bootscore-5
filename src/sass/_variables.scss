@@ -1,0 +1,32 @@
+/**
+ * Colors
+ */
+$pinkish: #eb8082;
+$pinkish-light: scale-color($pinkish, $lightness: 10%);
+$pinkish-dark: scale-color($pinkish, $lightness: -10%);
+$golden-yellow: lightgoldenrodyellow;
+
+/**
+ * Typography
+ */
+$large-text-size: 1.5em;
+
+/**
+ * Layout
+ */
+$border-radius: 3px;
+
+/**
+ * Buttons
+ */
+$nice-button-background-color: $pinkish;
+$nice-button-border-color: $pinkish-light;
+$nice-button-border-radius: $border-radius;
+$nice-button-border-width: 1px;
+$nice-button-padding-x: 12px;
+$nice-button-padding-y: 16px;
+
+$nice-button-border-radius-lg: $nice-button-border-radius * 3;
+$nice-button-border-width-lg: $nice-button-border-width * 3;
+$nice-button-padding-x-lg: $nice-button-padding-x * 1.5;
+$nice-button-padding-y-lg: $nice-button-padding-y * 1.5;

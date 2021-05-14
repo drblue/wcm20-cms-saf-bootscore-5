@@ -248,6 +248,10 @@ add_filter( 'widget_text', 'do_shortcode' );
  */
 function bootscore_scripts() {
 
+	/**
+	 * Styles
+	 */
+
 	// Style CSS
 	wp_enqueue_style( 'bootscore-style', get_template_directory_uri() . '/css/theme.css' );
 
@@ -256,6 +260,10 @@ function bootscore_scripts() {
 
 	// Flexslider
 	wp_enqueue_style( 'flexslider', get_template_directory_uri() . '/css/lib/flexslider.css');
+
+	/**
+	 * Scripts
+	 */
 
 	// Bootstrap JS
 	wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/js/lib/bootstrap.bundle.min.js', array(), '20151215', true );

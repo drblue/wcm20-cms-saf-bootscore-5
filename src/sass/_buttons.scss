@@ -1,0 +1,41 @@
+/**
+ * Buttons styles
+ */
+
+.nice-button {
+	background-color: $nice-button-background-color;
+	border-radius: $nice-button-border-radius;
+	border: $nice-button-border-width solid $nice-button-border-color;
+	padding: $nice-button-padding-x $nice-button-padding-y;
+}
+
+.nice-button-orange {
+	@extend .nice-button;
+
+	background-color: orange;
+	border-color: scale-color(orange, $lightness: -15%);
+
+	&:hover {
+		background-color: scale-color(orange, $lightness: -30%);
+	}
+
+	&::after {
+		content: " ➡️";
+	}
+}
+
+.nice-button-lg {
+	@extend .nice-button;
+
+	border-radius: $nice-button-border-radius-lg;
+	border-width: $nice-button-border-width-lg;
+	font-size: $large-text-size;
+	padding: $nice-button-padding-x-lg $nice-button-padding-y-lg;
+}
+
+.nice-button-cyan {
+	@include my-button-variant(#80d7eb, #fafafa);
+}
+.nice-button-green {
+	@include my-button-variant(#80eb89, #f0f0f0);
+}

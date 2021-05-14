@@ -1,0 +1,11 @@
+@mixin my-button-variant($base-color, $text-color) {
+	background-color: $base-color;
+	border-color: scale-color($base-color, $lightness: -15%);
+	color: $text-color;
+
+	&:hover {
+		background-color: scale-color($base-color, $lightness: -5%);
+		border-color: scale-color($base-color, $lightness: -20%);
+		color: scale-color($text-color, $lightness: 10%);
+	}
+}

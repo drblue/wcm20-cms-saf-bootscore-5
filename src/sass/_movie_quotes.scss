@@ -1,0 +1,21 @@
+/**
+ * Movie Quote styles
+ */
+
+.bs-movie-quote {
+	@extend .row;
+	border-radius: $border-radius;
+
+	.bs-movie-quote-content {
+		@extend .col;
+	}
+
+	.bs-movie-quote-text {
+		font-size: $large-text-size;
+	}
+
+	.bs-movie-quote-image {
+		@extend .col-md-3;
+		padding: 0;
+	}
+}

@@ -25,7 +25,7 @@ if (!empty($block['anchor'])) {
 }
 
 // Create class for wrapping element
-$className = 'bs-movie-quote row';
+$className = 'bs-movie-quote';
 if (!empty($block['className'])) {
 	$className .= " {$block['className']}";
 }
@@ -47,17 +47,18 @@ $text_color = get_field('text_color') ?: 'var(--bs-dark)';  // "#fff2f5"
 ?>
 
 <figure id="<?php echo $id; ?>" class="<?php echo $className; ?>">
-	<div class="col">
-		<blockquote class="blockquote">
-			<p class="bs-movie-quote-text"><?php echo $quote; ?></p>
+	<div class="bs-movie-quote-content">
+		<blockquote class="bs-movie-quote-text">
+			<?php echo $quote; ?>
 		</blockquote>
-		<figcaption class="blockquote-footer">
+		<figcaption>
 			<cite class="bs-movie-quote-character"><?php echo $character; ?></cite>
 		</figcaption>
+		<button class="nice-button-orange">Read more</button>
 	</div>
 
 	<?php if ($image_id): ?>
-		<div class="col-md-3 p-0">
+		<div class="bs-movie-quote-image">
 			<?php echo wp_get_attachment_image($image_id, 'medium', false, ['class' => 'img-fluid']); ?>
 		</div>
 	<?php endif; ?>

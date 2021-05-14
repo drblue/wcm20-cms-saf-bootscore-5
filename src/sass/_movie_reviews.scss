@@ -2,7 +2,11 @@
  * Movie Review styles
  */
 
+$movie-review-bgcolor: $golden-yellow;
+
 .single-mbt_movie_review {
+	background-color: $movie-review-bgcolor;
+
 	.entry-content {
 		text-align: justify;
 
