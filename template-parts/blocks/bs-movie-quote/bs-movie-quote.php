@@ -35,6 +35,13 @@ if (!empty($block['align'])) {
 
 $quote = get_field('quote') ?: "A funny movie quote";
 $character = get_field('character') ?: "Movie Character name";
+$background_color = get_field('background_color') ?: 'var(--bs-light)';  // "#db4871"
+$text_color = get_field('text_color') ?: 'var(--bs-dark)';  // "#fff2f5"
+
+// dump([
+// 	'background_color' => $background_color,
+// 	'text_color' => $text_color,
+// ]);
 
 ?>
 
@@ -45,6 +52,15 @@ $character = get_field('character') ?: "Movie Character name";
 	<figcaption class="blockquote-footer">
 		<cite class="bs-movie-quote-character"><?php echo $character; ?></cite>
 	</figcaption>
+
+	<style type="text/css">
+		#<?php echo $id; ?>,
+		#<?php echo $id; ?> blockquote,
+		#<?php echo $id; ?> figcaption {
+			background-color: <?php echo $background_color; ?>;
+			color: <?php echo $text_color; ?>;
+		}
+	</style>
 </figure>
 
 <?php
