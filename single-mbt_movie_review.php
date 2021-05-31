@@ -34,69 +34,76 @@ get_header();
 
 			<div class="container pb-5">
 
-				<div class="entry-content">
+				<div class="row">
+					<div class="col-md-8 col-xxl-9">
 
-					<?php if (!has_post_thumbnail()): ?>
-						<?php the_title('<h1>', '</h1>'); ?>
-					<?php endif; ?>
+						<div class="entry-content">
 
-					<?php if (!has_post_thumbnail()): ?>
-						<!-- Movie Score -->
-						<?php bootscore_movie_score_badge(); ?>
-					<?php endif; ?>
+							<?php if (!has_post_thumbnail()): ?>
+								<?php the_title('<h1>', '</h1>'); ?>
+							<?php endif; ?>
 
-					<!-- Movie Medium -->
-					<?php if (function_exists('get_field') && $medium = get_field('medium')): ?>
-						<div class="movie-medium badge bg-primary">
-							<?php echo $medium['label']; ?>
-						</div>
-					<?php endif; ?>
+							<?php if (!has_post_thumbnail()): ?>
+								<!-- Movie Score -->
+								<?php bootscore_movie_score_badge(); ?>
+							<?php endif; ?>
 
-					<!-- Movie Genres -->
-					<?php bootscore_movie_genre_badge(); ?>
+							<!-- Movie Medium -->
+							<?php if (function_exists('get_field') && $medium = get_field('medium')): ?>
+								<div class="movie-medium badge bg-primary">
+									<?php echo $medium['label']; ?>
+								</div>
+							<?php endif; ?>
 
-					<!-- Trailers -->
-					<?php
-						// get all trailers (if any)
-						$trailers = get_post_meta(get_the_ID(), 'trailer', false);
-						if (!empty($trailers)) {
-							echo '<div class="movie-trailers mb-2">';
-							foreach ($trailers as $trailer) {
-								printf('<a href="%s" class="badge bg-warning me-1">Trailer</a>', $trailer);
-							}
-							echo '</div>';
-						}
-					?>
+							<!-- Movie Genres -->
+							<?php bootscore_movie_genre_badge(); ?>
 
-					<p class="entry-meta">
-						<small class="text-muted">
+							<!-- Trailers -->
 							<?php
-								 bootscore_date();
-								 _e(' by ', 'bootscore'); the_author_posts_link();
-								 bootscore_comment_count();
+								// get all trailers (if any)
+								$trailers = get_post_meta(get_the_ID(), 'trailer', false);
+								if (!empty($trailers)) {
+									echo '<div class="movie-trailers mb-2">';
+									foreach ($trailers as $trailer) {
+										printf('<a href="%s" class="badge bg-warning me-1">Trailer</a>', $trailer);
+									}
+									echo '</div>';
+								}
 							?>
-						</small>
-					</p>
 
-					<!-- Movie Info -->
-					<?php bootscore_movie_info(); ?>
-					<!-- Movie Gallery -->
+							<p class="entry-meta">
+								<small class="text-muted">
+									<?php
+										bootscore_date();
+										_e(' by ', 'bootscore'); the_author_posts_link();
+										bootscore_comment_count();
+									?>
+								</small>
+							</p>
 
-					<!-- Movie Gallery -->
-					<?php bootscore_movie_gallery(); ?>
-					<!-- Movie Gallery -->
+							<!-- Movie Info -->
+							<?php bootscore_movie_info(); ?>
+							<!-- Movie Gallery -->
 
-					<?php bootscore_movie_actors(); ?>
+							<!-- Movie Gallery -->
+							<?php bootscore_movie_gallery(); ?>
+							<!-- Movie Gallery -->
 
-					<!-- Movie Poster -->
-					<?php bootscore_movie_poster(); ?>
-					<!-- End Movie Poster -->
+							<?php bootscore_movie_actors(); ?>
 
-					<?php bootscore_movie_preamble(); ?>
+							<!-- Movie Poster -->
+							<?php bootscore_movie_poster(); ?>
+							<!-- End Movie Poster -->
 
-					<?php the_content(); ?>
+							<?php bootscore_movie_preamble(); ?>
 
-				</div>
+							<?php the_content(); ?>
+
+						</div>
+
+					</div><!-- col -->
+					<?php get_sidebar(); ?>
+				</div><!-- row -->
 
 				<footer class="entry-footer clear-both">
 					<nav aria-label="Page navigation example">
